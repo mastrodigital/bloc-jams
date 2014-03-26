@@ -1,0 +1,37 @@
+//Set variable for footer height.
+$default-player-footer-height: 100px;
+$default-text-color: white;
+
+.player-body-container{
+	//set the minimum body container to fill the height of entire window.
+	min-height: 100%;
+	
+	//set the footer to a fixed position
+	padding-bottom: $default-player-footer-height;
+	
+	// Default color for text and links 'white'
+	color: $default-text-color;
+	a {
+		color: $default-text-color;
+	}
+
+	@include background(radial-gradient($very-light-background-purple, $dark-background-purple));
+
+  	// define properties for the header/footer
+  	.default-player-header, .default-player-footer {
+  		// Set background color to be transparent white - header and footer.	
+		background-color: rgba($medium-purple, .9);
+		}
+	
+	// Header specfic styling	
+	.default-player-header {
+	// Design calls for extra bold font.
+	@include font-open-sans(800);
+	}
+	
+	.default-player-footer {
+		height: $default-player-footer-height;
+	}
+
+
+}
