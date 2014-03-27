@@ -1,2 +1,41 @@
 // SASS stylings for the 'album' view.
 
+.album-header-container {
+	margin: 55px 0 25px 0;
+}
+
+.album-header-information {
+	margin-bottom: 20px;
+	text-align: left;
+
+  .album-title, .album-artist, .album-meta-info {
+	  line-height: 150%;
+  }
+  
+  .album-title {
+	  font-size: 48px;
+	  @include font-open-sans(300);
+  }
+
+  .album-artist {
+	  font-size:24px;
+	  @include font-open-sans(700);
+  }
+
+  .album-meta-info {
+	  font-size: 16px;
+	  @include font-open-sans(500);
+  }
+}
+
+
+.table, .album-song-list-table {
+  @include font-open-sans(300);
+	 
+  tbody > tr > td {
+  	text-align: left;
+    font-size: 14px;
+    padding: 20px;
+	border-top: 1px solid rgba(white, .4);
+  }
+}
