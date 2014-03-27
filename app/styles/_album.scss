@@ -28,11 +28,28 @@
   }
 }
 
+.table-striped {
+  tbody > tr:nth-child(odd) > td {
+    background-color: rgba(white, .1);
+  }  
+  tbody > tr:nth-child(odd):hover > td {
+    background-color: rgba(white, .3);
+  } 
+  tbody > tr:hover > td {
+    background-color: rgba(white, .3);
+  } 
+}
 
-.table, .album-song-list-table {
+
+.table-striped, .album-song-list-table {
   @include font-open-sans(300);
+  
+  thead > tr > th {
+    @include font-open-sans(700);
+    font-size: 18px;
+  }
 	 
-  tbody > tr > td {
+  tbody > tr > td {	
   	text-align: left;
     font-size: 14px;
     padding: 20px;
