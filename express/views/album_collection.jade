@@ -1,3 +1,13 @@
 extends layouts/player_layout
 
 block content
+  .container.album-collection
+    .row.album-row-container         
+    - for(var i = 0; i < 33; i++)
+      .col-md-2
+        .thumbnail
+          a(href="/album"): img(src="/images/album-placeholder.png")
+          .caption
+            a(href="/album"): h3 Album Name 
+            a(href="/album"): h4 Artist Name
+            a(href="/album"): h4 X Songs
