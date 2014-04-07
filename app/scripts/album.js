@@ -34,10 +34,39 @@ var albumMarconi = {
 };
 
 var createSongRow = function(songNumber, songName, songLength) {
+  
+  var $newSongRow = $('<tr>');
+  $newSongRow.append('<td class="col-md-1">' + songNumber + '</td>');
+  $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
+  $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
+  
+  return $newSongRow;
 };
 
 var changeAlbumView = function(album) {
-  // Your code goes here
+
+  var $albumTitle = $('.album-title');
+  $albumTitle.text(album.name);
+  
+  var $albumArtist = $('.album-artist');
+  $albumArtist.text(album.artist);
+  
+  var $albumMeta = $('.album-meta-info');
+  $albumMeta.text(album.year + " on " + album.label);
+  
+  var $albumImage = $('.album-image img');
+  $albumImage.attr('src', album.albumArtUrl);
+  
+  var $songList = $(".album-song-list-table");
+  $songList.empty();
+  var songs = album.songs;
+  
+  for(i=0; i < songs.length; i++) {
+    var songData = songs[i];
+    var $newRow = createSongRow(i, songData.name, songData.length);
+    $songList.append($newRow);
+  }
+
 };
 
 // This 'if' condition is used to preven the jQuery modifications
@@ -48,5 +77,15 @@ if (document.URL.match(/\/album/)) {
   $(document).ready(function() {
     // Code to switch views goes here.
     var albums = [albumPicasso, albumMarconi];
+    changeAlbumView(albumPicasso);
+    
+    var albumIndex = 0;
+    var $albumImage = $('.album-image img');
+    console.log($albumImage);
+    $albumImage.click(function(Event) {
+      albumIndex = (albumIndex + 1) % albums.length;
+      
+      changeAlbumView(albums[albumIndex]);
+    });
   });
 }

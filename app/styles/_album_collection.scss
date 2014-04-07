@@ -2,30 +2,34 @@
 
 .album-row-container{
 	margin: 55px 0 25px 0;
-}
-
-.thumbnail{
+  
+  .thumbnail{
 	background-color: transparent;
 	border: none;
 	padding: 8px 8px 0 8px;
-}
+    &:hover {
+	    background-color: rgba(white, .2);	
+      }
+  }
+  input {
+    &[type="text"]{
+      background-color: white;
+    }
+  }
 
-
-h3 {
+  h3 {
 	@include font-open-sans(300);
 	font-size: 16px;
 	color: white;
 	text-align: left;
 	line-height: 0.6;
-}
+    }
 
-h4 {
+  h4 {
 	@include font-open-sans(300);
 	font-size: 16px;
 	color: rgba(white, .6);
 	text-align: left;
+    } 
 }
 
-.thumbnail:hover {
-	background-color: rgba(white, .2);	
-}
