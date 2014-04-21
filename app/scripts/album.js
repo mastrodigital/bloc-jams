@@ -33,13 +33,52 @@ var albumMarconi = {
     ]
 };
 
+var onHover = function (event) {
+  if (lastSongClicked != this) {
+   $(this).find("td").first().html("<i class='fa fa-play'></i>");
+  }
+};
+
+var offHover = function (event) {
+  if (lastSongClicked != this) {
+    var $this = $(this);
+    var songNumber = $this.attr("data-song-number");
+    $this.find("td").first().html(songNumber);
+  }
+};
+
+var onClick = function (event) {
+  if (lastSongClicked != this) {
+    $(this).find("td").first().html("<i class='fa fa-pause'></i>");
+    var songNumber = $(lastSongClicked).attr("data-song-number");
+      $(lastSongClicked).find("td").first().html(songNumber);
+    lastSongClicked = this;
+  }
+
+  else {
+    lastSongClicked = this;
+    $(this).find("td").first().html("<i class='fa fa-play'></i>");
+    lastSongClicked = null;
+  }
+};
+
+var lastSongClicked = null;
+
+var newClick = function (event) {
+  var songNumber = $(this).attr("data-song-number");
+  $(this).find("td").first().html(songNumber);
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
-  
-  var $newSongRow = $('<tr>');
+
+  var $newSongRow = $('<tr data-song-number = "'+ songNumber +'">');
   $newSongRow.append('<td class="col-md-1">' + songNumber + '</td>');
   $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
   $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
-  
+
+  $newSongRow.hover(onHover, offHover);
+  $newSongRow.click(onClick);
+
   return $newSongRow;
 };
 
@@ -47,20 +86,20 @@ var changeAlbumView = function(album) {
 
   var $albumTitle = $('.album-title');
   $albumTitle.text(album.name);
-  
+
   var $albumArtist = $('.album-artist');
   $albumArtist.text(album.artist);
-  
+
   var $albumMeta = $('.album-meta-info');
   $albumMeta.text(album.year + " on " + album.label);
-  
+
   var $albumImage = $('.album-image img');
   $albumImage.attr('src', album.albumArtUrl);
-  
+
   var $songList = $(".album-song-list-table");
   $songList.empty();
   var songs = album.songs;
-  
+
   for(i=0; i < songs.length; i++) {
     var songData = songs[i];
     var $newRow = createSongRow(i, songData.name, songData.length);
@@ -78,13 +117,13 @@ if (document.URL.match(/\/album/)) {
     // Code to switch views goes here.
     var albums = [albumPicasso, albumMarconi];
     changeAlbumView(albumPicasso);
-    
+
     var albumIndex = 0;
     var $albumImage = $('.album-image img');
     console.log($albumImage);
     $albumImage.click(function(Event) {
       albumIndex = (albumIndex + 1) % albums.length;
-      
+
       changeAlbumView(albums[albumIndex]);
     });
   });

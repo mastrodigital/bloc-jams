@@ -1,4 +1,84 @@
 extends layouts/player_layout
 
 block content
-
+  .container
+    .text-center
+      ul.pagination.pagination-lg.page-nav
+  
+        li(data-tab-container="youraccount"): a(href='#') Your Account
+        li(data-tab-container="yoursubscription"): a(href='#') Subscription
+      
+    .yoursubscription.tab  
+      .subscription-blocks.text-center 
+        img(src="/images/subscription-placeholder.png")
+        img(src="/images/subscription-placeholder.png")
+        img(src="/images/subscription-placeholder.png")
+      
+      .row.ccinfo
+        .col-md-6.col-md-push-3
+          h2 Credit Cards
+          table.table
+            tr
+              td VISA
+              td XXXX-1234
+              td: i.fa.fa-minus-circle
+            tr  
+              td VISA
+              td XXXX-1234
+              td: i.fa.fa-minus-circle
+              
+          button.default-button.center-block
+           | ADD CARD  
+            
+            
+    .youraccount.tab      
+      .personal-info
+        h2 Personal Information
+           
+      .row.user-profile
+          .col-md-3
+            .user-image
+              img(src="/images/user-upload-placeholder.png")
+              button.default-button.center-block
+               |  UPLOAD  
+          
+          .col-md-9
+            form.form
+              .form-group.col-md-12
+                label(for="name") Name
+                input.form-control(type="text", id="name")
+              .form-group.col-md-12
+                label(for="email") Email
+                input.form-control(type="email", id="email")
+              
+              .form-group.col-xs-6
+                  label(for="city") City
+                  input.form-control(type="text", id="city")
+                  
+              .form-group.col-xs-6
+                  label(for="state") State
+                  input.form-control(type="text", id="state")
+              
+              .clearfix
+              
+              .form-group.col-md-12
+                label(for="country") Country
+                input.form-control(type="text", id="country")
+              
+              button.default-button.center-block
+                SAVE PROFILE
+                
+            form.form
+              .form-group.col-md-12  
+                label(for="password") Password
+                input.form-control(type="text", id="password")
+              .form-group.col-md-12
+                label(for="password-confirm") Password Confirmation
+                input.form-control(type="text", id="password-confirm")
+              
+              .clearfix
+              button.default-button.center-block
+                CHANGE PASSWORD   
+                
+              
+                    

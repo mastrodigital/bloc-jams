@@ -19,25 +19,3 @@ body, html {
   border-radius: 0;
   margin-bottom: 0;
 }
-
-$mycolor: #DEDDD5;
-$defaultheader: #545454; 
-$divbackground: #B5B5B5;
-$default-border-size: 1px;
-
-body{
-	background-color: $mycolor;
-}
-
-.container{
-	text-align: center;
-}
-
-.grey-background {
-	background-color: $divbackground;
-	border: (1px + $default-border-size) solid black;
-}
-
-.orange-text {
-	color: #e79000;	
-}

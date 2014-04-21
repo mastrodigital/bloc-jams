@@ -1,0 +1,59 @@
+$highlight-color: #D2287B;
+
+
+.page-nav {
+  text-align: center;
+  
+  & > li > a {
+    background-color: transparent;
+    color: white;
+    border-color: $highlight-color;
+    
+    &:hover {
+      background-color: $highlight-color;
+    }
+  }
+  
+  & > .active > a {
+    background-color: $highlight-color;
+  }
+} 
+
+.personal-info {
+  h2 {
+    @include font-open-sans(300);
+    font-size: 24px;
+  }
+}
+
+.user-image {
+  display: inline-block;
+  
+  button.default-button {
+    margin-top: 20px;
+  }
+}
+
+.user-profile {
+   @include font-open-sans(300);
+   font-size: 16px;
+   
+   label{
+     @include font-open-sans(300);
+     font-size: 16px;
+   }
+   
+   input{
+     background: rgba(white, .6);
+     font-size: 16px;
+     @include font-open-sans(300);
+     color: #0A032B;
+   } 
+}
+
+.ccinfo {
+  h2 {
+    @include font-open-sans(300);
+    font-size: 24px;
+  }
+}

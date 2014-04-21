@@ -3,13 +3,6 @@ extends layouts/player_layout
 block content
   .container.album-collection
     .row.album-row-container         
-      .col-md-2
-        .thumbnail
-          a(href="/album"): img(src="http://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg")
-          .caption
-            a(href="/album"): h3 Graduation
-            a(href="/album"): h4 Kanye West
-            a(href="/album"): h4 9 Songs
       - for(var i = 0; i < 33; i++)
         .col-md-2
           .thumbnail

@@ -1,0 +1,19 @@
+.default-button {
+  @include font-open-sans (700);
+  background-color: #D2287B;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  padding: 8px;
+  text-transform: capitalize;
+  border: none;
+  
+  &:active{
+    background-color: #9B1D64;
+  }
+  
+  &:disabled {
+    background-color: #B3B3B3;
+  }
+}
+
