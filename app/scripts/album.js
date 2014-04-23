@@ -33,7 +33,7 @@ var albumMarconi = {
     ]
 };
 
-var onHover = function (event) {
+/* var onHover = function (event) {
   if (lastSongClicked != this) {
    $(this).find("td").first().html("<i class='fa fa-play'></i>");
   }
@@ -128,3 +128,4 @@ if (document.URL.match(/\/album/)) {
     });
   });
 }
+*/

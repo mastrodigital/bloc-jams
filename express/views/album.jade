@@ -1,24 +1,30 @@
 extends layouts/player_layout
 
 block content
-  .container.album-container
+  .container.album-container(ng_controller="Album.controller")
     .row.album-header-container
       .col-md-3
         .album-image
-          img(src="http://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg")
+          img(ng_src="{{album.albumArtUrl}}", ng_click="changeAlbum()")
       .col-md-9.col-md-push-1
         .album-header-information
-          h3.album-title Graduation
-          h4.album-artist Kanye West
-          h5.album-meta-info Roc-A-Fella Records 2007
+          h3.album-title {{ album.name }}
+          h4.album-artist {{ album.artist }}
+          h5.album-meta-info {{ album.year }} on {{ album.label }}
     .row
       .col-md-12
-        table.table.table-striped.album-song-list-table  
+        table.table.table-striped.album-song-list-table
           thead
             tr
               th #
               th Title
-              th Duration       
-          tbody.table-hover  
-            each colorName, index in ['Good Morning', 'Champion', 'Stronger', 'Wonder', 'Good', 'Nothing', 'Barry', 'Drunk', 'Lights'] 
-                  
+              th Duration
+          tbody.table-hover
+            each colorName, index in ['Good Morning', 'Champion', 'Stronger', 'Wonder', 'Good', 'Nothing', 'Barry', 'Drunk', 'Lights']
+              tr(ng_repeat="song in album.songs")
+                td
+                  | {{ index + 1 }}
+                td
+                  | {{ song.name }}
+                td
+                  | {{ song.length }}
