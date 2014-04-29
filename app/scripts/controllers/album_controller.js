@@ -39,7 +39,7 @@ angular.module("Controllers").controller('Album.controller', ['$scope', function
 
   $scope.album = albums [0];
   $scope.changeAlbum = function () {
-    currentAlbumIndex = (currentAlbum + 1) % albums.length;
+    currentAlbumIndex = (currentAlbumIndex + 1) % albums.length;
     $scope.album = albums[currentAlbumIndex];
   };
 }]);

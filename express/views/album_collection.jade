@@ -1,13 +1,13 @@
 extends layouts/player_layout
 
 block content
-  .container.album-collection
-    .row.album-row-container         
-      - for(var i = 0; i < 33; i++)
-        .col-md-2
+  .container.album-collection(ng_controller="AlbumCollection.controller")
+    .row.album-row-container
+        .col-md-2(ng_repeat="album in Albums")
           .thumbnail
-            a(href="/album"): img(src="/images/album-placeholder.png")
+            a(href="/album"): img(ng_src="{{album.albumArtUrl}}")
             .caption
-              a(href="/album"): h3 Album Name 
-              a(href="/album"): h4 Artist Name
-              a(href="/album"): h4 X Songs
+              a(href="/album"): h3 {{ album.name }}
+              a(href="/album"): h4 {{ album.artist }}
+              a(href="/album"): h4 {{ album.songs.length }}
+              a(href="{{album.url()}}"): h4{{ album.metaInfo() }}
